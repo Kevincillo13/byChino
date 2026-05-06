@@ -278,7 +278,7 @@ const ProductCard = ({ product, index }: { product: any, index: number }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   React.useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
     if (isHovered) {
       setCurrentImg(1); 
       interval = setInterval(() => {
