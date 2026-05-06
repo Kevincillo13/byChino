@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #F9F6F0;
+  --color-text: #2A2522;
+  --color-subtext: #5C544D;
+  --color-wood: #8E5B3E;
+  --color-olive: #556B2F;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-base text-text font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 20;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.image-treatment {
+  filter: contrast(1.05) saturate(1.1) brightness(0.95);
+  transition: filter 0.5s ease;
+}
+
+.image-treatment:hover {
+  filter: contrast(1.1) saturate(1.2) brightness(1);
+}
